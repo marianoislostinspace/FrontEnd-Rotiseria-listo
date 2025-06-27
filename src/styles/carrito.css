@@ -1,0 +1,165 @@
+/* Asegura que los estilos sean específicos del carrito */
+.carritoLateral {
+  position: relative;
+  z-index: 1045; /* Mayor que el navbar si es necesario */
+}
+
+/* Botón para abrir el carrito */
+.filtroButton {
+  position: fixed;
+  left: 15px; /* aseguramos margen desde la izquierda */
+  top: 80px;  /* ajustado a la altura del navbar */
+  z-index: 1050;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 4px solid black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.479);
+}
+
+
+/* Contenedor offcanvas */
+.offcanvas {
+  background-color: #f8f9fa;
+  width: 300px;
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+}
+
+/* Cabecera del carrito */
+.carritoHeader {
+  background-color: #ffcc70;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Contenido del carrito */
+.contenidoCarrito {
+  padding: 15px;
+}
+
+/* Cada item del carrito */
+.itemContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.itemsCarrito {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.eliminar {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.Total {
+  font-size: 1.2rem;
+}
+
+.TotalPrice {
+  font-size: 1.3rem;
+  color: #28a745;
+}
+
+.pedidoContainer {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pedidoContainer input {
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.pedidoButton {
+  background-color: #28a745;
+  margin-top: 30px;
+  margin-left: 20px;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pedidoButton:hover {
+  background-color: #218838;
+}
+
+
+@media (max-width: 768px) {
+  /* Botón de abrir carrito más chico y accesible */
+  .filtroButton {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  /* El carrito ocupa toda la pantalla */
+  .offcanvas {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  /* Cabecera del carrito más compacta */
+  .carritoHeader {
+    padding: 12px;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Contenido con menos padding */
+  .contenidoCarrito {
+    padding: 10px;
+  }
+
+  .itemContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .itemsCarrito {
+    font-size: 0.95rem;
+  }
+
+  .eliminar {
+    padding: 4px 10px;
+    font-size: 0.9rem;
+  }
+
+  .Total, .TotalPrice {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .pedidoContainer input {
+    font-size: 0.95rem;
+    padding: 6px;
+  }
+
+  .pedidoButton {
+    font-size: 0.95rem;
+    padding: 8px;
+  }
+}

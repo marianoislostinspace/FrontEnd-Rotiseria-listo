@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+
+
+.bloque-final {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 60px;
+  background-color: #111;
+  color: #fff;
+  flex-wrap: wrap;
+  position: relative;
+  height: 300px;
+  height: 250px;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 45%;
+}
+
+.leftContainer h1 {
+  font-size: 28px;
+  color: orange;
+}
+
+.social-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.social-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.social-item i {
+  font-size: 60px;
+  color: orange;
+  margin-bottom: 10px;
+  margin-right: 30px;
+}
+
+.social-item a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  margin-right: 30px;
+}
+
+.social-item a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+
+.rigthContainer {
+  max-width: 45%;
+  text-align: right;
+}
+
+.rigthContainer h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: orange;
+}
+
+.rigthContainer p {
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.dev{
+    color: orange;
+    font-size: 22px;
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background-color: orange;
+  width: 60%;
+  margin: 30px auto 0 auto;
+  border-radius: 5px;
+}
+
+.footer-credit {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .bloque-final {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .leftContainer,
+  .rigthContainer {
+    max-width: 100%;
+    width: 40%;
+    text-align: center;
+    margin-bottom: 30px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftContainer h1 {
+    font-size: 18px;
+  }
+
+  .social-icons {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .social-item i {
+    font-size: 30px;
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+
+  .social-item a {
+    font-size: 16px;
+    margin-right: 0;
+  }
+
+  .rigthContainer h1 {
+    font-size: 20px;
+  }
+
+  .rigthContainer p {
+    font-size: 14px;
+  }
+
+  hr {
+    visibility: hidden;
+  }
+  .dev{
+    font-size: 14px;
+  }
+}

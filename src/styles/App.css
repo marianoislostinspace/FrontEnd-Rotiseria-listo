@@ -1,0 +1,135 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: black; /* respaldo por si no hay fondo en alguna sección */
+}
+
+
+/* contenedor principal */
+.pagina {
+  position: relative;
+  padding-top: 120px;
+  min-height: 100vh;
+  z-index: 1;
+}
+
+.imagenFondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('img/burguer3.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+
+
+
+/* … resto de tu CSS … */
+
+
+.TituloDiv {
+  position: absolute;
+  right: 0;
+  margin-top: 200px;
+  margin-right: 50px;
+  display: flex;
+  width: 40%;
+  flex-direction: column;
+}
+
+.titulo {
+  font-size: 90px;
+  font-weight: 700;
+  padding-left: 20px;
+  color: yellow;
+  text-decoration: underline;
+}
+
+.subtituloGrande {
+  font-size: 75px;
+  font-weight: 600;
+  padding: 20px;
+  color: white;
+}
+
+.cush {
+  color: red;
+}
+
+.texto {
+  padding-left: 20px;
+  font-size: 30px;
+  color: white;
+}
+
+.boton {
+  font-size: 80px;
+  margin-top: 20px;
+  align-self: center;
+  color: orange;
+  padding: 20px;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  transform: scale(1.07);
+}
+
+
+@media (max-width: 768px) {
+  .TituloDiv {
+    position: relative;
+    width: 100%;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .titulo {
+    font-size: 50px;
+    padding-left: 0;
+    margin-top: 80px;
+  }
+
+  .subtituloGrande {
+    font-size: 40px;
+    padding: 10px 0;
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.205);
+    border-radius: 20px;
+  }
+
+  .texto {
+    font-size: 20px;
+    padding-left: 0;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.349);
+  }
+
+  .boton {
+    font-size: 50px;
+    padding: 5px 15px;
+    margin-top: 50px;
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+}
+
+/* CAMBIO DE IMAGEN AL SER MOBILE */
+@media (max-width: 768px) {
+  .imagenFondo {
+    background-image: url('img/burguerMobile.jpg');
+  }
+
+  .texto {
+    margin-top: 50%;
+  }
+}
