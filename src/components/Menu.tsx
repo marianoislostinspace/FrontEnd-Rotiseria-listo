@@ -3,6 +3,7 @@ import '../styles/Menu.css'
 import '../styles/carrito.css'
 import Swal from 'sweetalert2'
 
+// sapo
 
 type Categoria = {
   id: string

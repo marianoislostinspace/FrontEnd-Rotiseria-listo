@@ -1,7 +1,7 @@
 .contacto-page {
   padding-top: 120px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e64848a2, #000000c5, #302a15);
+  background: linear-gradient(135deg, #e6484865, #dab3b394, #302a1560);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -27,7 +27,6 @@
   color: black;
   margin: 50px;
   padding: 5px;
-  margin-top: 185px;
   border-radius: 40px;
 }
 
@@ -106,7 +105,6 @@
 
 @media (max-width: 768px) {
   .info {
-    margin-top: 50px;
     flex-direction: column;
     align-items: center;
     color: white;
@@ -117,11 +115,10 @@
     margin: 30px 0 20px 0;
     text-align: center;
     color: white;
-
   }
 
   .tituloContacto {
-    font-size: 48px;
+    font-size: 50px;
     color: white;
 
   }
@@ -129,7 +126,7 @@
   .texto2 h2 {
     color: white;
 
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .texto2 p {

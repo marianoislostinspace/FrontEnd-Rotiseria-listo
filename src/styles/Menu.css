@@ -6,28 +6,23 @@ body {
   background-color: #000;
 }
 
-
+/* ------------------ ROOT DIV (página de menú) ------------------ */
 .rootDiv {
   min-height: 10vh;
   width: 100%;
   padding-top: 80px;
+  padding: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 15px;
-
-  /* Capas: primero el gradiente, luego la imagen */
   background-image:
     linear-gradient(135deg, rgba(82, 64, 32, 0.514), rgba(0, 0, 0, 0.7), rgba(141, 69, 22, 0.418)),
     url('img/blanco.jpg');
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-
 }
-
 
 .sapo {
   margin-top: 500px;
@@ -35,18 +30,12 @@ body {
   z-index: 10;
 }
 
-.rootDiv {
-
-  background-color: #f4f4f4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
+/* ------------------ MENÚ ------------------ */
 .menuDiv {
   display: flex;
   flex-direction: column;
   gap: 4rem;
   margin-top: 100px;
-
 }
 
 .menuDiv h1 {
@@ -79,7 +68,6 @@ body {
 .plato {
   width: 250px;
   height: 350px;
-  /* Tamaño fijo para que no se estire */
   background-color: rgba(255, 255, 255, 0.712);
   border-radius: 15px;
   overflow: hidden;
@@ -91,7 +79,6 @@ body {
   border: 3px solid rgb(0, 0, 0);
   border-left: 7px solid rgb(255, 194, 28);
 }
-
 
 .plato:hover {
   transform: translateY(-6px);
@@ -127,17 +114,15 @@ body {
   margin: 0 1rem 1rem;
 }
 
+/* ------------------ DETALLES DEL PLATO ------------------ */
 .detallesDivContainer {
-  /* Capas: primero el gradiente, luego la imagen */
   background-image:
     linear-gradient(135deg, rgba(82, 64, 32, 0.514), rgba(0, 0, 0, 0.7), rgba(141, 69, 22, 0.418)),
     url('img/blanco.jpg');
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,31 +130,18 @@ body {
   min-height: 100vh;
   padding: 20px;
   position: relative;
-  /* antes era fixed */
-  margin-top: 30px;
 }
-
 
 .singlePlato {
   margin-bottom: 100px;
   max-width: 600px;
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   animation: fadeIn 0.4s ease-in-out;
-
-}
-
-.addCart {
-  border-radius: 10px;
-  background-color: #ff6600;
-  color: white;
-  border: none;
-  font-weight: 400;
-  font-size: 20px;
 }
 
 .singlePlato h1 {
@@ -188,7 +160,7 @@ body {
 }
 
 .descripcion {
-  font-size: 200px;
+  font-size: 1.2rem;
   color: black;
   margin-bottom: 1rem;
 }
@@ -204,8 +176,7 @@ body {
 
 .volverBtn {
   position: absolute;
-  margin-top: 100px;
-  top: 82%;
+  top: 85%;
   left: 50%;
   transform: translateX(-50%);
   background-color: #ff6600;
@@ -218,7 +189,9 @@ body {
   z-index: 10;
 }
 
-
+.volverBtn:hover {
+  background-color: #e55a00;
+}
 
 .inputNota {
   margin-bottom: 20px;
@@ -253,7 +226,7 @@ body {
   background-color: #43fa15d8;
 }
 
-
+/* ------------------ COUNTER ------------------ */
 .counterdiv {
   display: flex;
   justify-content: center;
@@ -263,8 +236,7 @@ body {
 .counter {
   width: 50px;
   height: 50px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 0 20px;
   font-size: 30px;
   border-radius: 10px;
   transition: 0.2s;
@@ -276,69 +248,10 @@ body {
 }
 
 .counterh1 {
-  font-size: 10px;
+  font-size: 1rem;
 }
 
-
-@media (max-width: 768px) {
-  .platoContainer {
-    grid-template-columns: repeat(2, 1fr);
-    /* 2 platos por fila */
-    gap: 1rem;
-    padding: 0;
-  }
-
-  .plato {
-    width: 100%;
-    /* Que use todo el ancho disponible */
-    max-width: none;
-    height: auto;
-    /* Para que se ajuste al contenido */
-  }
-
-  .plato img {
-    height: 140px;
-    /* Un poco más chica si querés */
-  }
-}
-
-
-
-@media (max-width: 768px) {
-  .singlePlato {
-    width: 90%;
-    padding: 1.5rem 1rem;
-    margin: 2rem auto;
-    margin-top: 100px;
-  }
-
-  .singlePlato h1 {
-    font-size: rem;
-    margin-bottom: 15px;
-  }
-
-  .singlePlato .descripcion {
-    font-size: 1rem;
-  }
-
-  .singlePlato .precio {
-    font-size: 1.2rem;
-  }
-
-  .singlePlato img {
-    max-height: 200px;
-  }
-
-  .volverBtn {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .plato h3 {
-    font-size: 20px;
-  }
-}
-
+/* ------------------ LABEL CHECKBOX OPCIONES ------------------ */
 .label {
   display: flex;
   align-items: center;
@@ -350,7 +263,59 @@ body {
 
 .checkbox {
   accent-color: #4caf50;
-  /* color verde para el checkbox */
   width: 18px;
   height: 18px;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+  .platoContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .plato {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .plato img {
+    height: 140px;
+  }
+
+  .singlePlato {
+    width: 90%;
+    padding: 1.5rem 1rem;
+    margin: 2rem auto;
+    margin-top: 100px;
+  }
+
+  .singlePlato h1 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .descripcion {
+    font-size: 1rem;
+  }
+
+  .singlePlatoPrecio {
+    font-size: 1.2rem;
+  }
+
+  .singlePlato img {
+    max-height: 200px;
+  }
+
+  .volverBtn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    margin-top: 40px;
+  }
+
+  .plato h3 {
+    font-size: 20px;
+  }
 }

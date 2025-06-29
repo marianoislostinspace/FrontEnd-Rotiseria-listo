@@ -7,7 +7,6 @@
   box-sizing: border-box;
   z-index: 10;
   background-color: transparent;
-  margin-top: 40px;
 }
 
 .navbar-content {
@@ -21,6 +20,7 @@
   flex-direction: row;
   align-items: center;
   position: absolute;
+
 }
 
 /* EN PC: mostrar links siempre */
@@ -31,6 +31,8 @@
   opacity: 1;
   transform: translateY(0);
   max-height: none;
+  margin-top: 60px;
+
 }
 
 .nav-link {
@@ -59,6 +61,7 @@
   transform: translateX(-50%);
   text-align: center;
   z-index: 100;
+  margin-top: 60px;
 }
 
 .frase {
@@ -69,9 +72,17 @@
 }
 
 @keyframes sizeChange {
-  0% { font-size: 22px; }
-  50% { font-size: 24px; }
-  100% { font-size: 22px; }
+  0% {
+    font-size: 22px;
+  }
+
+  50% {
+    font-size: 24px;
+  }
+
+  100% {
+    font-size: 22px;
+  }
 }
 
 /* === LOGO === */
@@ -119,19 +130,22 @@
 
   .links {
     overflow: hidden;
-    flex-direction: row; /* Horizontal */
+    flex-direction: row;
+    /* Horizontal */
     align-items: center;
-    gap: 12px; /* Separación entre links */
+    gap: 12px;
+    /* Separación entre links */
     max-height: 0;
     opacity: 0;
     transform: translateY(-10px);
     transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-    margin-top: 0px;
+    margin-top: 20px;
     width: 100%;
   }
 
   .links.visible {
-    max-height: 60px; /* altura suficiente para los links en línea */
+    max-height: 60px;
+    /* altura suficiente para los links en línea */
     opacity: 1;
     transform: translateY(0);
   }

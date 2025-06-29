@@ -1,6 +1,5 @@
-import { use, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import '../styles/footer.css'
-import { Link } from "react-router"
 
 
 type Props = {}
