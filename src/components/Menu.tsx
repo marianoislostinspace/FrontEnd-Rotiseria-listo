@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import '../styles/Menu.css'
 import '../styles/carrito.css'
 import Swal from 'sweetalert2'
+import { useData } from '../context/dataContext'
 
 // sapo
 
@@ -37,30 +38,51 @@ type Opciones = {
 
 
 
-type Props = {
-  platoshome: Plato[]
-  categoriashome: Categoria[]
-}
 
-export const Menu: React.FC<Props> = ({ platoshome, categoriashome }) => {
+export const Menu = () => {
 
+
+
+
+
+  const { platos, setPlatos, categorias, setCategorias } = useData();
 
   useEffect(() => {
-    const propLoad = () => {
-      setCategorias(categoriashome)
-      setPlatos(platoshome)
+    if (platos.length > 0 && categorias.length > 0) return; // Si ya cargados, no fetch
 
-    }
-    propLoad()
-  }, [])
+    Swal.fire({
+      title: 'Cargando...',
+      text: 'Por favor espera',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
 
+    const fetchData = async () => {
+      try {
+        const resPlatos = await fetch(`${urlApi}platos`);
+        const dataPlatos = await resPlatos.json();
+
+        const resCategorias = await fetch(`${urlApi}categorias`);
+        const dataCategorias = await resCategorias.json();
+
+        setPlatos(dataPlatos);
+        setCategorias(dataCategorias);
+      } catch (error) {
+        console.error("Error al cargar datos:", error);
+      }
+      Swal.close(); // cerrar loader cuando termine de cargar
+
+    };
+
+    fetchData();
+  }, []);
 
 
 
   const urlApi = import.meta.env.VITE_API_URL
 
-  const [categorias, setCategorias] = useState<Categoria[]>([])
-  const [platos, setPlatos] = useState<Plato[]>([])
   const [detalles, setdetalles] = useState<boolean>(false)
   const [singlePlato, setsinglePlato] = useState<Plato | null>(null)
 
@@ -293,6 +315,8 @@ export const Menu: React.FC<Props> = ({ platoshome, categoriashome }) => {
   return (
     <>
 
+
+
       <div className="carritoLateral">
         {/* Botón que abre el Sidebar, solo visible si el menú está cerrado */}
         {!isMenuOpen && (
@@ -344,7 +368,6 @@ export const Menu: React.FC<Props> = ({ platoshome, categoriashome }) => {
           </div>
         </div>
       </div>
-
 
 
       {detalles ? (

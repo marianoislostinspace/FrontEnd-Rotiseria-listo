@@ -1,9 +1,9 @@
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   overflow-x: hidden;
-  background-color: black; /* respaldo por si no hay fondo en alguna sección */
+  background-color: black;
 }
 
 

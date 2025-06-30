@@ -1,159 +1,135 @@
-/* === ESTILOS GENERALES === */
+/* Reset básico */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .navbar {
-  position: fixed;
+  position: relative;
+  height: 80px;
+  top: 0;
   width: 100%;
-  padding: 10px 20px;
+  padding: 0;
+  /* Sacar padding para no agregar espacio */
   box-sizing: border-box;
-  z-index: 10;
-  background-color: transparent;
+  display: flex;
+  border-bottom: 2px solid orange;
+  justify-content: center;
 }
 
 .navbar-content {
+  width: 100%;
+  /* Que ocupe todo el ancho */
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
+  padding: 0 20px;
+  /* Poner padding solo aquí para los lados */
+  box-sizing: border-box;
 }
 
-.nav-links {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: absolute;
 
+.logo img {
+  height: 90px;
+  cursor: pointer;
 }
 
-/* EN PC: mostrar links siempre */
-.links {
-  display: flex;
-  flex-direction: row;
-  margin-top: 0;
-  opacity: 1;
-  transform: translateY(0);
-  max-height: none;
-  margin-top: 60px;
-
-}
-
-.nav-link {
-  color: yellow;
-  text-decoration: none;
-  font-size: 34px;
-  font-weight: 600;
-  margin: 0 8px 0 20px;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: rgb(255, 0, 0);
-}
-
-/* Ocultar hamburguesa en PC */
-.hamburger {
-  display: none;
-}
-
-/* === FRASE CENTRAL === */
-
+/* Frase central */
 .fraseDiv {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  flex-grow: 1;
+  /* Ocupa todo el espacio entre logo y links */
   text-align: center;
-  z-index: 100;
-  margin-top: 60px;
+  margin: 0 20px;
+  font-size: 20px;
+  color: white;
+  /* Margen para que no toque logo ni links */
 }
 
 .frase {
-  font-size: 22px;
-  color: white;
+  font-style: italic;
   margin: 0;
-  animation: sizeChange 5s ease-in-out infinite;
 }
 
-@keyframes sizeChange {
-  0% {
-    font-size: 22px;
-  }
-
-  50% {
-    font-size: 24px;
-  }
-
-  100% {
-    font-size: 22px;
-  }
+/* Menú flotante a la derecha */
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 
-/* === LOGO === */
-
-.logo img {
-  position: absolute;
-  right: 0;
-  height: 120px;
-  width: auto;
-  top: 0;
+/* Botón hamburguesa */
+.hamburger {
+  font-size: 34px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffd600;
+  /* Amarillo para el icono */
+  display: none;
+  /* Por defecto escondido en desktop */
+  padding: 0 10px;
 }
 
-/* === RESPONSIVE - MOBILE === */
+/* Links flotantes */
+.links {
+  display: flex;
+  gap: 30px;
+}
 
+.nav-link {
+  color: #ffd600;
+  /* Amarillo */
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 30px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #fff200;
+  /* Amarillo más claro al pasar el mouse */
+}
+
+/* Responsive: en pantallas pequeñas mostramos menú hamburguesa */
 @media (max-width: 768px) {
-  .navbar {
-    position: relative;
-    background-color: rgba(0, 0, 0, 0.9);
-    margin: 0;
+  .hamburger {
+    display: block;
   }
 
-  .navbar-content {
+  .links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.85);
     flex-direction: column;
-    align-items: flex-start;
+    width: 150px;
+    padding: 10px 0;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .links.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .links{
+    gap: 5px;
+    background-color: rgba(0, 0, 0, 0.842);
+  }
+
+  .nav-link {
+    padding: 10px 20px;
+    font-size: 18px;
   }
 
   .fraseDiv {
     display: none;
-  }
-
-  .logo img {
-    display: none;
-  }
-
-  .hamburger {
-    display: block;
-    font-size: 28px;
-    margin-top: 10px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-right: 50px;
-  }
-
-  .links {
-    overflow: hidden;
-    flex-direction: row;
-    /* Horizontal */
-    align-items: center;
-    gap: 12px;
-    /* Separación entre links */
-    max-height: 0;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  .links.visible {
-    max-height: 60px;
-    /* altura suficiente para los links en línea */
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .nav-link {
-    font-size: 22px;
-    margin: 0;
-    padding: 6px 8px;
-    white-space: nowrap;
   }
 }
