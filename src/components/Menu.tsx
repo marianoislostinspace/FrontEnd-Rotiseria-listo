@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../styles/Menu.css'
+import '../styles/Navbar.css'
 import '../styles/carrito.css'
 import Swal from 'sweetalert2'
 import { useData } from '../context/dataContext'
@@ -37,12 +38,14 @@ type Opciones = {
 
 
 
+interface MenuProps {
+  isNavOpen: boolean;
+}
 
 
-export const Menu = () => {
 
 
-
+export const Menu = ({ isNavOpen }: MenuProps) => {
 
 
   const { platos, setPlatos, categorias, setCategorias } = useData();
@@ -321,7 +324,7 @@ export const Menu = () => {
         {/* Botón que abre el Sidebar, solo visible si el menú está cerrado */}
         {!isMenuOpen && (
           <button
-            className="btn btn-primary m-3 filtroButton"
+            className={`filtroButton ${isNavOpen ? 'mostrar-en-navbar' : 'ocultar'}`}
             data-bs-toggle="offcanvas"
             data-bs-target="#sidebarMenu"
             aria-controls="sidebarMenu"
@@ -374,8 +377,8 @@ export const Menu = () => {
         <div>
           {singlePlato && (
             <div className="detallesDivContainer">
-              <button onClick={goBack} className='volverBtn'>Volver</button>
               <div className='singlePlato'>
+                <button onClick={goBack} className='volverBtn'>Volver</button>
                 <h1>{singlePlato.nombre}</h1>
                 <p className='descripcion'>{singlePlato.descripcion}</p>
                 <p className='singlePlatoPrecio'>${singlePlato.precio}</p>

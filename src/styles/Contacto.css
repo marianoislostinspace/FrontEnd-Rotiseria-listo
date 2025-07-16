@@ -1,8 +1,9 @@
 .contacto-page {
   padding-top: 120px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #e6484865, #dab3b394, #302a1560);
+  /* background: linear-gradient(135deg, #e6484865, #dab3b394, #302a1560); */
   background-repeat: no-repeat;
+  background-color: black;
   background-position: center;
   background-size: cover;
 }
@@ -24,7 +25,7 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
-  color: black;
+  color: rgb(255, 255, 255);
   margin: 50px;
   padding: 5px;
   border-radius: 40px;
@@ -54,7 +55,7 @@
 .texto2 p {
   font-family: 'Times New Roman', Times, serif;
   font-size: 35px;
-  color: black;
+  color: rgb(202, 202, 202);
 }
 
 .botonContacto {
@@ -98,7 +99,7 @@
 /* imagen local */
 .imagen-local {
   object-fit: cover;
-  border: 2px solid black;
+  border: 2px solid rgb(255, 0, 0);
   border-radius: 50%;
 }
 

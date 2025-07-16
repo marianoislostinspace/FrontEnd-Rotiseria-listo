@@ -1,24 +1,10 @@
 /* Asegura que los estilos sean específicos del carrito */
 .carritoLateral {
   position: relative;
-  z-index: 1045; /* Mayor que el navbar si es necesario */
+  z-index: 1045;
+  /* Mayor que el navbar si es necesario */
 }
 
-/* Botón para abrir el carrito */
-.filtroButton {
-  position: fixed;
-  left: 15px; /* aseguramos margen desde la izquierda */
-  top: 80px;  /* ajustado a la altura del navbar */
-  z-index: 1050;
-  background-color: #ffc107;
-  color: #000;
-  border: none;
-  font-weight: bold;
-  padding: 10px 15px;
-  border-radius: 10px;
-  border: 4px solid black;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.479);
-}
 
 
 /* Contenedor offcanvas */
@@ -26,7 +12,7 @@
   background-color: #f8f9fa;
   width: 300px;
   transition: transform 0.3s ease-in-out;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Cabecera del carrito */
@@ -105,13 +91,29 @@
 
 
 @media (max-width: 768px) {
+
   /* Botón de abrir carrito más chico y accesible */
-  .filtroButton {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 8px 12px;
-    font-size: 14px;
+  @media (max-width: 768px) {
+    .filtroButton {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: auto;
+      height: auto;
+      padding: 10px 15px;
+      font-size: 0.95rem;
+      writing-mode: initial;
+      /* texto horizontal */
+      border-radius: 8px;
+      transform: none;
+      /* sin animación de manija */
+      transition: none;
+    }
+
+    .filtroButton:hover {
+      transform: none;
+      /* sin desplazamiento */
+    }
   }
 
   /* El carrito ocupa toda la pantalla */
@@ -148,7 +150,8 @@
     font-size: 0.9rem;
   }
 
-  .Total, .TotalPrice {
+  .Total,
+  .TotalPrice {
     font-size: 1.1rem;
     margin-top: 10px;
   }

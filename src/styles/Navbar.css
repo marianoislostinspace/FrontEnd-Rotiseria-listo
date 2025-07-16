@@ -1,98 +1,173 @@
-/* Reset básico */
-body,
-html {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.navbar {
-  position: relative;
-  height: 80px;
-  top: 0;
-  width: 100%;
-  padding: 0;
-  /* Sacar padding para no agregar espacio */
-  box-sizing: border-box;
-  display: flex;
-  border-bottom: 2px solid orange;
-  justify-content: center;
+body,
+html {
+  height: 100%;
+  font-family: sans-serif;
 }
 
-.navbar-content {
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  /* Que ocupe todo el ancho */
+  height: 70px;
+  background: rgb(92, 86, 86);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  /* Poner padding solo aquí para los lados */
-  box-sizing: border-box;
+  z-index: 1000;
 }
 
-
 .logo img {
-  height: 90px;
+  height: 80px;
   cursor: pointer;
 }
 
-/* Frase central */
-.fraseDiv {
-  flex-grow: 1;
-  /* Ocupa todo el espacio entre logo y links */
-  text-align: center;
-  margin: 0 20px;
-  font-size: 20px;
-  color: white;
-  /* Margen para que no toque logo ni links */
-}
-
-.frase {
-  font-style: italic;
-  margin: 0;
-}
-
-/* Menú flotante a la derecha */
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-/* Botón hamburguesa */
 .hamburger {
-  font-size: 34px;
+  font-size: 40px;
   background: none;
   border: none;
   cursor: pointer;
   color: #ffd600;
-  /* Amarillo para el icono */
-  display: none;
-  /* Por defecto escondido en desktop */
-  padding: 0 10px;
 }
 
-/* Links flotantes */
-.links {
+.textoMid {
+  font-family: "My Soul", cursive;
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+}
+
+.cush {
+  color: red;
+}
+
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100vh;
+  background: rgb(41, 40, 40);
   display: flex;
-  gap: 30px;
+  flex-direction: column;
+  align-items: start;
+  padding: 80px 20px 20px 20px;
+  transform: translateX(-100%);
+  transition: transform 0.8s ease-in-out;
+  z-index: 999;
+}
+
+.side-menu i{
+  margin-right: 20px;
+  color: red;
+}
+
+.side-menu.open {
+  transform: translateX(0);
 }
 
 .nav-link {
+  margin-top: 10px;
   color: #ffd600;
-  /* Amarillo */
   text-decoration: none;
-  font-weight: 600;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 20px;
   transition: color 0.3s;
 }
 
 .nav-link:hover {
   color: #fff200;
-  /* Amarillo más claro al pasar el mouse */
+}
+
+
+.filtroButton.open {
+  transform: translateX(0);
+}
+
+
+.filtroButton.ocultar {
+  display: block;
+  transform: translateX(-130%);
+
+}
+
+.filtroButton.mostrar-en-navbar {
+  display: block;
+  position: fixed;
+  margin-top: 20%;
+  left: 15px;
+  width: 250px;
+  height: 60px;
+  background-color: #ffc107;
+  color: black;
+  border: 3px solid black;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1500;
+  transform: translateX(4%);
+  transition: transform 0.8s ease-in-out;
+
+}
+
+.filtroButton:hover {
+  transform: scale(1.08);
+}
+
+
+.socialDiv {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  width: 300px;
+  left: 0;
+  margin-bottom: 20px;
+}
+
+.social-item-nav i {
+  font-size: 20px;
+}
+
+.icono {
+  font-size: 20px;
+}
+
+
+.horario {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 250px;
+  margin-bottom: 30px;
+}
+
+.horario h1 {
+  color: red;
+}
+
+.horario h4 {
+  color: white;
+  font-size: 18px;
+}
+
+.horario i {
+  color: yellow;
 }
 
 /* Responsive: en pantallas pequeñas mostramos menú hamburguesa */
 @media (max-width: 768px) {
+
+
   .hamburger {
     display: block;
   }
@@ -119,17 +194,46 @@ html {
     transform: translateY(0);
   }
 
-  .links{
+  .links {
     gap: 5px;
     background-color: rgba(0, 0, 0, 0.842);
   }
 
   .nav-link {
-    padding: 10px 20px;
-    font-size: 18px;
+    padding: 2px 20px;
+    font-size: 25px;
   }
 
   .fraseDiv {
     display: none;
   }
+
+  .side-menu {
+    height: 950px;
+  }
+
+  .filtroButton.mostrar-en-navbar {
+    position: fixed;
+    margin-top: 65%;
+  }
+
+
+
+  .textoMid {
+    font-family: "My Soul", cursive;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+
+
+  .socialDiv {
+    position: absolute;
+    bottom: 0;
+    width: 250px;
+    left: 0;
+    margin-bottom: 20px;
+  }
+
 }

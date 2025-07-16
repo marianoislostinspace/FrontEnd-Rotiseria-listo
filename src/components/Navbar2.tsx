@@ -1,6 +1,6 @@
 // Navbar.tsx
 import { Link } from "react-router"; // react-router-dom, no "react-router"
-import '../styles/Navbar.css';
+import '../styles/nav2.css';
 
 interface NavbarProps {
   isNavOpen: boolean;
@@ -8,14 +8,14 @@ interface NavbarProps {
   closeMenu: () => void;
 }
 
-export const Navbar = ({ isNavOpen, toggleMenu, closeMenu }: NavbarProps) => {
+export const Navbar2 = ({ isNavOpen, toggleMenu, closeMenu }: NavbarProps) => {
   return (
     <>
       <nav className="navbar">
         <button className="hamburger" onClick={toggleMenu}>
           ☰
         </button>
-        <div className="textoMEdio"><h1 className="textoMid"><i className="cush">CUSH 🍔 </i>BURGUERS</h1></div>
+
         <div className="logo">
           <img src="img/logo.png" alt="Logo" />
         </div>
@@ -24,9 +24,9 @@ export const Navbar = ({ isNavOpen, toggleMenu, closeMenu }: NavbarProps) => {
       </nav>
 
       <div className={`side-menu ${isNavOpen ? 'open' : ''}`}>
-        <Link to="/" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-house"></i>inicio</Link>
-        <Link to="/Menu" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-burger"></i>Menu</Link>
-        <Link to="/Contacto" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-phone"></i>Contacto</Link>
+        <Link to="/" className="nav-link" onClick={closeMenu}>Inicio</Link>
+        <Link to="/Menu" className="nav-link" onClick={closeMenu}>Menú</Link>
+        <Link to="/Contacto" className="nav-link" onClick={closeMenu}>Contacto</Link>
 
         <div className="horario">
           <h1>Horarios:</h1>

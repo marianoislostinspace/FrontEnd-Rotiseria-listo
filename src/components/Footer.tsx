@@ -46,7 +46,7 @@ export const Footer = (props: Props) => {
 
                 <div className="rigthContainer">
                     <h1>Cush Burguers Web Site</h1>
-                    <p>&copy; {año} Todos los derechos reservados. <br /> Desarrollado por <strong><i className="dev">Mariano Ferreyra</i></strong> &#8226; <br />📞 +54 3551 244 5293</p>
+                    <p>&copy; {año} Todos los derechos reservados. <br /> Desarrollado por <strong><i className="dev">Adolfo hitler</i></strong> &#8226; <br />📞 +54 3551 244 5293</p>
                 </div>
                 <hr />
 
