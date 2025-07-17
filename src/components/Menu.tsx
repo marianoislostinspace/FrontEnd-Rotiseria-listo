@@ -108,29 +108,6 @@ export const Menu = ({ isNavOpen }: MenuProps) => {
   }, [cart]);
 
 
-  useEffect(() => {
-    const fetchPlatosYCategorias = async () => {
-      try {
-        const resPlatos = await fetch(`${urlApi}platos`)
-        const dataPlatos: Plato[] = await resPlatos.json()
-        console.log('platos:', dataPlatos)  // Aquí ves los platos
-
-        const resCategorias = await fetch(`${urlApi}categorias`)
-        const dataCategorias: Categoria[] = await resCategorias.json()
-        console.log('categorias:', dataCategorias)  // Aquí ves las categorías
-
-        setPlatos(dataPlatos)
-        setCategorias(dataCategorias)
-      } catch (error) {
-        console.error('Error al cargar datos:', error)
-      }
-    }
-
-    fetchPlatosYCategorias()
-  }, [])
-
-
-
   const getDetalles = (plato: Plato) => {
     setsinglePlato(plato)
     setdetalles(true)
@@ -428,9 +405,9 @@ export const Menu = ({ isNavOpen }: MenuProps) => {
                   <div className="platoContainer">
                     {platosDeCategoria.map((plato) => (
                       <div key={plato.id} className="plato" onClick={() => getDetalles(plato)}>
+                        <img src={plato.imagen} alt={plato.nombre} />
                         <h3>{plato.nombre}</h3>
                         <p>${plato.precio}</p>
-                        <img src={plato.imagen} alt={plato.nombre} />
                       </div>
                     ))}
                   </div>
