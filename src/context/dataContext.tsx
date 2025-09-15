@@ -1,33 +1,8 @@
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
-// Tus types
-type Categoria = {
-  id: string;
-  nombre: string;
-};
+import type { Categoria, Plato, PlatoConOpciones, Opciones } from '../types/type'
 
-type Opciones = {
-  id: string;
-  nombre: string;
-  precioExtra?: number;
-};
-
-type Plato = {
-  id: string;
-  nombre: string;
-  precio: number;
-  imagen: string;
-  descripcion: string;
-  categoriaId: string;
-  opciones: Opciones[] | null;
-};
-
-type PlatoConOpciones = Plato & {
-  opcionesSeleccionadas: Opciones[];
-  nota?: string;
-  cantidad: number;
-};
 
 // Context Type
 interface DataContextType {

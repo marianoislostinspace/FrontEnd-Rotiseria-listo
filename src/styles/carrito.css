@@ -1,10 +1,27 @@
 /* Asegura que los estilos sean específicos del carrito */
 .carritoLateral {
-  position: relative;
+  position: absolute;
   z-index: 1045;
   /* Mayor que el navbar si es necesario */
 }
 
+.filtroButton {
+  position: fixed;
+  width: 150px;
+  height: 40px;
+  margin: 15px;
+  right: 0;
+  margin-right: 100px;
+  background-color: rgb(248, 215, 28);
+  border-radius: 10px;
+  border: 4px solid black;
+  transition: .2s;
+}
+
+.filtroButton:hover{
+  transform: scale(1.09);
+  background-color: #f17623;
+}
 
 
 /* Contenedor offcanvas */
@@ -95,24 +112,14 @@
   /* Botón de abrir carrito más chico y accesible */
   @media (max-width: 768px) {
     .filtroButton {
-      position: absolute;
-      top: 20px;
-      left: 10px;
-      width: auto;
-      height: auto;
-      padding: 10px 15px;
-      font-size: 0.95rem;
-      writing-mode: initial;
-      /* texto horizontal */
-      border-radius: 8px;
-      transform: none;
-      /* sin animación de manija */
-      transition: none;
-    }
-
-    .filtroButton:hover {
-      transform: none;
-      /* sin desplazamiento */
+      position: fixed;
+      width: 130px;
+      height: 50px;
+      bottom: 0;
+      right: 0;
+      margin-right: 20px;
+      margin-bottom: 30px;
+      border-radius: 30px;
     }
   }
 

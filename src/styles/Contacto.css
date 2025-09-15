@@ -1,9 +1,7 @@
 .contacto-page {
-  padding-top: 120px;
-  min-height: 100vh;
   /* background: linear-gradient(135deg, #e6484865, #dab3b394, #302a1560); */
   background-repeat: no-repeat;
-  background-color: black;
+  background-color: #d3d2d1;
   background-position: center;
   background-size: cover;
 }
@@ -25,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   width: 50%;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   margin: 50px;
   padding: 5px;
   border-radius: 40px;
@@ -55,7 +53,7 @@
 .texto2 p {
   font-family: 'Times New Roman', Times, serif;
   font-size: 35px;
-  color: rgb(202, 202, 202);
+  color: rgb(0, 0, 0);
 }
 
 .botonContacto {
@@ -63,37 +61,27 @@
   height: 50px;
   width: 250px;
   font-size: 30px;
-  border-radius: 12px;
-  border: 2px solid black;
-  background-color: rgba(255, 167, 3, 0.616);
+  border-radius: 10px;
+  background-color: rgb(66, 66, 66);
   transition: 0.3s;
   cursor: pointer;
+  color: yellow;
 }
 
 .botonContacto:hover {
   transform: scale(1.03);
-  background-color: chartreuse;
+  color: red;
 }
 
 /* Contenedor del mapa o la imagen */
-.mapa,
+
 .imagen-local {
-  width: 800px;
-  height: 750px;
+  width: 700px;
+  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 50px 80px 50px 50px;
-}
-
-/* iframe */
-.iframe {
-  width: 600px;
-  height: 700px;
-  border: 0;
-  border-radius: 20px;
-  object-fit: cover;
-  margin-top: 100px;
 }
 
 /* imagen local */
@@ -108,31 +96,31 @@
   .info {
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: rgb(0, 0, 0);
   }
 
   .texto2 {
     width: 90%;
     margin: 30px 0 20px 0;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
   }
 
   .tituloContacto {
     font-size: 50px;
-    color: white;
+    color: rgb(0, 0, 0);
 
   }
 
   .texto2 h2 {
-    color: white;
+    color: rgb(0, 0, 0);
 
     font-size: 28px;
   }
 
   .texto2 p {
     font-size: 22px;
-    color: white;
+    color: rgb(0, 0, 0);
 
   }
 
@@ -155,6 +143,7 @@
   }
 
   .imagen-local {
+    order: -1;
     width: 90%;
     height: auto;
     border-radius: 20px;
