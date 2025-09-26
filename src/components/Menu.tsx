@@ -4,7 +4,7 @@ import '../styles/Navbar.css'
 import '../styles/carrito.css'
 import Swal from 'sweetalert2'
 import { useData } from '../context/dataContext'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 import { useCart } from '../context/carritoContext'
 
 import type { Categoria, Plato, PlatoConOpciones, Opciones } from '../types/type'
@@ -84,8 +84,33 @@ export const Menu = ({ isNavOpen }: MenuProps) => {
 
 
 
+
+
+  const navigate = useNavigate()
+
+  const handleNavigate = (cat: Categoria) => {
+    navigate("/Menu", {
+      state: { scrollTo: cat.nombre }
+    })
+  }
+
+
+
+  const [open, setOpen] = useState(false);
+
   return (
     <>
+
+      <div className={`sidebar ${open ? "open" : ""}`} onClick={() => setOpen(!open)}>
+        <h1 className='navTitle'>Navegacion Rapida</h1>
+        {categorias.map((categoria) => {
+          return (
+            <>
+              <ul className='catNameSide' onClick={() => handleNavigate(categoria)}>{categoria.nombre}</ul>
+            </>
+          )
+        })}
+      </div>
 
 
 
