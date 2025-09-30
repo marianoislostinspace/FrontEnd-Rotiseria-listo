@@ -29,7 +29,7 @@ body {
   border-bottom-right-radius: 20px;
   border: 2px solid black;
 
-  transform: translateX(-90%);
+  transform: translateX(-94%);
   transition: transform 0.3s ease;
   cursor: pointer;
   z-index: 10;
@@ -46,10 +46,16 @@ body {
 .catNameSide {
   margin-top: 40px;
   color: black;
-  font-size: 25px;
-
+  font-size: 30px;
+  transition: .1s
 }
 
+.catNameSide:hover{
+  transform: scale(1.08);
+  color: orange;
+  background-color: #000000;
+  padding: auto;
+}
 
 
 
@@ -348,6 +354,14 @@ body {
     transform: translateX(-92%);
     z-index: 10;
   }
+
+  .catNameSide{
+    font-size: 25px;
+  }
+
+
+
+
 
   .rootDiv {
     background-position: center;
