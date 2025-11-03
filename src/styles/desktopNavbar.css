@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+}
+
+.desktopNavbar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    transition: background 0.3s ease;
+}
+
+
+.mobileNavbar {
+    display: none;
+}
+
+.navbar.navContent {
+    display: flex;
+    width: 100%;
+    background-color: #23222700;
+}
+
+.linksContainer {
+    display: flex;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    padding: 20px;
+}
+
+.linksContainer:first-child {
+    margin-left: 40px;
+}
+
+.nav-link {
+    margin-right: 50px;
+}
+
+.horarios{
+    width: 110px;
+    background-color: transparent;
+    color: white;
+    border: none;
+}

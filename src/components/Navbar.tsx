@@ -1,6 +1,7 @@
 // Navbar.tsx
-import { Link } from "react-router"; // react-router-dom, no "react-router"
-import '../styles/Navbar.css';
+import { Link, useLocation } from "react-router"; // react-router-dom, no "react-router"
+import '../styles/mobileNavbar.css';
+import '../styles/desktopNavbar.css';
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 
@@ -14,8 +15,9 @@ interface NavbarProps {
 
 export const Navbar = ({ isNavOpen, toggleMenu, closeMenu }: NavbarProps) => {
 
+  const location = useLocation()
 
-
+  const isMenuPage = location.pathname === "/Menu"
 
   const horarios = () => {
     Swal.fire({
@@ -39,60 +41,68 @@ export const Navbar = ({ isNavOpen, toggleMenu, closeMenu }: NavbarProps) => {
   }, [])
 
 
-
-
-
-
-
-
-
   return (
     <>
-      <nav className="navbar">
-        <button className="hamburger" onClick={toggleMenu}>
-          ☰
-        </button>
-        <div className="textoMEdio"><Link className="homeNav" to="/"><h1 className="textoMid"><i className="cush">CUSH 🍔 </i>BURGUERS</h1></Link></div>
-        <div className="logo">
-          <img src="img/logo.png" alt="Logo" />
-        </div>
+      {/* NAVBAR PARA DESKTOP */}
+      <div className="desktopNavbar">
 
 
-      </nav>
+        <div className={`navbar ${isMenuPage ? "navContent" : ""}`}>
+          <div className="linksContainer">
+            <Link to="/" className="nav-link" onClick={closeMenu}>inicio</Link>
+            <Link to="/Menu" className="nav-link" onClick={closeMenu}>Menu</Link>
+            <button className="horarios" onClick={horarios}>Horarios</button>
 
-      <div className={`side-menu ${isNavOpen ? 'open' : ''}`}>
-        <Link to="/" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-house"></i>inicio</Link>
-        <Link to="/Menu" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-burger"></i>Menu</Link>
-        <button className="horarios" onClick={horarios}><i className="fa-solid fa-calendar"></i>Horarios</button>
-
-        {/* ICONOS DE REDES */}
-
-        <div className="socialMedia">
-          <div className="social-item">
-            <i className="fa-brands fa-whatsapp"></i>
-            <a href="#" target="_blank">WhatsApp</a>
-          </div>
-
-          <div className="social-item">
-            <i className="fa-brands fa-instagram"></i>
-            <a href="#" target="_blank">Instagram</a>
-          </div>
-
-          <div className="social-item">
-            <i className="fa-brands fa-facebook"></i>
-            <a href="#" target="_blank">Facebook</a>
-          </div>
-
-
-          <div className="rigthContainer">
-            <h1>Cush Burguers Web Site</h1>
-            <p>&copy; {año} Todos los derechos reservados. <br /></p>
           </div>
         </div>
 
 
+      </div>
 
 
+
+
+      {/* NAVBAR PARA MOBILE */}
+      <div className="mobileNavbar">
+        <nav className="navbar">
+          <button className="hamburger" onClick={toggleMenu}>
+            ☰
+          </button>
+          <div className="textoMEdio"><Link className="nav-link homeNav" to="/"><h1 className="textoMid"><i className="cush">CUSH 🍔 </i>BURGUERS</h1></Link></div>
+
+
+        </nav>
+
+        <div className={`side-menu ${isNavOpen ? 'open' : ''}`}>
+          <Link to="/" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-house"></i>inicio</Link>
+          <Link to="/Menu" className="nav-link" onClick={closeMenu}><i className="fa-solid fa-burger"></i>Menu</Link>
+          <button className="horarios" onClick={horarios}><i className="fa-solid fa-calendar"></i>Horarios</button>
+
+          {/* ICONOS DE REDES */}
+
+          <div className="socialMedia">
+            <div className="social-item">
+              <i className="fa-brands fa-whatsapp"></i>
+              <a href="#" target="_blank">WhatsApp</a>
+            </div>
+
+            <div className="social-item">
+              <i className="fa-brands fa-instagram"></i>
+              <a href="#" target="_blank">Instagram</a>
+            </div>
+
+            <div className="social-item">
+              <i className="fa-brands fa-facebook"></i>
+              <a href="#" target="_blank">Facebook</a>
+            </div>
+
+
+            <div className="rigthContainer">
+              <h1>Cush Burguers Web Site</h1>
+              <p>&copy; {año} Todos los derechos reservados. <br /></p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

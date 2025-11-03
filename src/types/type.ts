@@ -1,7 +1,7 @@
 export type Categoria = {
-    id:string
-    nombre:string
-    imagen:string
+    id: string
+    nombre: string
+    imagen: string
 }
 
 export type Plato = {
@@ -12,6 +12,8 @@ export type Plato = {
     descripcion: string
     categoriaId: string
     opciones: Opciones[] | null
+    entrega: string
+    pago: string
 }
 
 export type PlatoConOpciones = Plato & {

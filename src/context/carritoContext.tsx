@@ -11,7 +11,7 @@ type cartContextType = {
     handleAddCart: (product: Plato, opciones: string[], nota: string, cantidad: number) => void
     removeFromCart: (index: number) => void
     getTotal: () => number
-    realizarPedido: (name: string, telefono: string) => void
+    realizarPedido: (name: string, telefono: string, adress: string, pago: string) => void
 }
 
 const cartContext = createContext<cartContextType | undefined>(undefined)
@@ -62,8 +62,12 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
 
 
-    const realizarPedido = async (name: string, telefono: string) => {
+    const realizarPedido = async (name: string, telefono: string, adress: string, pago: string) => {
         if (!name.trim() || !telefono.trim()) {
+            Swal.fire({ icon: "error", title: "Error", text: "Completa nombre y teléfono" });
+            return;
+        }
+        if (!telefono.trim() || !telefono.trim()) {
             Swal.fire({ icon: "error", title: "Error", text: "Completa nombre y teléfono" });
             return;
         }
@@ -75,6 +79,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
 
         const pedidoData = {
             cliente: { nombre: name.trim(), telefono: telefono.trim() },
+            entrega: adress,
+            pago: pago,
             total: getTotal(),
             items: cart.map(item => ({
                 idPlato: item.id,
@@ -86,7 +92,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
                     precioExtra: opc.precioExtra ?? 0
                 })),
                 cantidad: item.cantidad,
-                nota: item.nota || ""
+                nota: item.nota || "",
+
             })),
             fecha: new Date().toISOString()
         };

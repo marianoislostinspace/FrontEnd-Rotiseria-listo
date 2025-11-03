@@ -1,12 +1,12 @@
 import { Routes, Route, Link, Navigate, useNavigate } from "react-router";
 import { Navbar } from "./components/Navbar";
 import { Menu } from "./components/Menu";
-import './styles/App.css';
+// import './styles/App.css';
+import './styles/App2.css';
 import './styles/Contacto.css';
 import { useEffect, useState } from "react";
 import { useData } from "./context/dataContext";
 import type { Categoria } from "./types/type";
-
 
 
 
@@ -75,45 +75,28 @@ export const App = () => {
     })
   }
 
-
   return (
     <div className="app-container">
+
+
+
       <Navbar
         isNavOpen={isNavOpen}
         toggleMenu={toggleMenu}
         closeMenu={closeMenu}
       />
 
+
+
       <main className="main-content">
         <Routes>
           <Route path="/" element={
             <>
 
-              {/* SECCION DEL CATALOGO DE CATEGORIAS */}
-              <div className="topContainer">
-                <div className="titleContainer">
-                  <h1 className="tituloGrid">Nuestro Catalogo</h1>
-                </div>
-              </div>
-
-              <div className="contenedor-principal">
-
-                <div className="izquierda">
-                  {categorias && (
-                    categorias.map((cat) => (
-                      <div key={cat.id} id={cat.id} onClick={() => handleNavigate(cat)}>
-                        <h1 className="tituloCat">{cat.nombre}</h1>
-                        <img src={cat.imagen} alt={cat.nombre} className="fotoCat" />
-                      </div>
-                    ))
-                  )}
-                </div>
-              </div>
 
 
 
-
-              {/* SECCION DE LA BARRA AL MEDIO CON LOS 3 ICONOS */}
+              {/* SECCION DE LA BARRA AL MEDIO CON LOS 3 ICONOS
               <div className="barra">
                 <div className="cont1">
                   <img src="img/logoBarra1.jpg" alt="Buena comida" />
@@ -133,24 +116,27 @@ export const App = () => {
                   <p>Tenemos nuestro propio equipo de delivery para entregarte la comida en tu casa</p>
                 </div>
               </div>
-
+ */}
 
               {/* SECCION DE LA HAMURGUESA Y EL TEXTO AL LATERAL */}
               <div className="pagina">
                 <div className="TituloDiv">
                   <h1 className="titulo">THE BEST FOOD QUALITY</h1>
                   <h4 className="subtituloGrande"><i className="cush">Cush</i> Burguer's</h4>
-                  <p className="texto">La encontras en Cush burguers, donde trabajamos con los mejores y más frescos ingredientes</p>
-                  <Link className="nav-link boton" to="/Menu">Ver Menu</Link>
+
+                  <h2 className="h2">Lorem ipsum dolor sit amet.</h2>
+                  <p className="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque facere voluptate eveniet id rerum. Totam harum et cum, eum in explicabo! Omnis reiciendis dolorum ex voluptas quae rem, voluptatibus ipsum. La encontras en Cush burguers, donde trabajamos con los mejores y más frescos ingredientes</p>
                 </div>
 
                 <div className="imagenFondo">
                   <img src="img/imgApp.png" className="imgApp" alt="Burguer app" />
                 </div>
+
               </div>
 
 
 
+              <Link className="nav-link boton" to="/Menu">Ver Menu</Link>
 
 
             </>
